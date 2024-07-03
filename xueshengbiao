@@ -1,0 +1,170 @@
+using System;
+using System.Windows.Forms;
+
+namespace StudentInformationForm
+{
+    public partial class StudentInfoForm : Form
+    {
+        // 声明窗体控件
+        private Label studentIdLabel;
+        private TextBox studentIdTextBox;
+        private Label nameLabel;
+        private TextBox nameTextBox;
+        private Label genderLabel;
+        private RadioButton maleRadioButton;
+        private RadioButton femaleRadioButton;
+        private Label ageLabel;
+        private NumericUpDown ageNumericUpDown;
+        private Label nativePlaceLabel;
+        private TextBox nativePlaceTextBox;
+        private CheckBox partyMemberCheckBox;
+        private Button showInfoButton;
+        private Button resumeButton;
+
+        public StudentInfoForm()
+        {
+            InitializeComponent();
+        }
+
+        private void InitializeComponent()
+        {
+            this.studentIdLabel = new Label();
+            this.studentIdTextBox = new TextBox();
+            this.nameLabel = new Label();
+            this.nameTextBox = new TextBox();
+            this.genderLabel = new Label();
+            this.maleRadioButton = new RadioButton();
+            this.femaleRadioButton = new RadioButton();
+            this.ageLabel = new Label();
+            this.ageNumericUpDown = new NumericUpDown();
+            this.nativePlaceLabel = new Label();
+            this.nativePlaceTextBox = new TextBox();
+            this.partyMemberCheckBox = new CheckBox();
+            this.showInfoButton = new Button();
+            this.resumeButton = new Button();
+            ((System.ComponentModel.ISupportInitialize)(this.ageNumericUpDown)).BeginInit();
+            this.SuspendLayout();
+
+            // 设置窗体标题
+            this.Text = "学生信息窗体";
+
+            // 设置学号标签和文本框
+            this.studentIdLabel.Text = "学号:";
+            this.studentIdLabel.Location = new System.Drawing.Point(30, 30);
+            this.studentIdLabel.Size = new System.Drawing.Size(60, 20);
+
+            this.studentIdTextBox.Location = new System.Drawing.Point(100, 30);
+            this.studentIdTextBox.Size = new System.Drawing.Size(150, 20);
+
+            // 设置姓名标签和文本框
+            this.nameLabel.Text = "姓名:";
+            this.nameLabel.Location = new System.Drawing.Point(30, 60);
+            this.nameLabel.Size = new System.Drawing.Size(60, 20);
+
+            this.nameTextBox.Location = new System.Drawing.Point(100, 60);
+            this.nameTextBox.Size = new System.Drawing.Size(150, 20);
+
+            // 设置性别标签和单选按钮
+            this.genderLabel.Text = "性别:";
+            this.genderLabel.Location = new System.Drawing.Point(30, 90);
+            this.genderLabel.Size = new System.Drawing.Size(60, 20);
+
+            this.maleRadioButton.Text = "男";
+            this.maleRadioButton.Location = new System.Drawing.Point(100, 90);
+            this.maleRadioButton.Size = new System.Drawing.Size(50, 20);
+            this.maleRadioButton.Checked = true;
+
+            this.femaleRadioButton.Text = "女";
+            this.femaleRadioButton.Location = new System.Drawing.Point(160, 90);
+            this.femaleRadioButton.Size = new System.Drawing.Size(50, 20);
+
+            // 设置年龄标签和数字选择框
+            this.ageLabel.Text = "年龄:";
+            this.ageLabel.Location = new System.Drawing.Point(30, 120);
+            this.ageLabel.Size = new System.Drawing.Size(60, 20);
+
+            this.ageNumericUpDown.Location = new System.Drawing.Point(100, 120);
+            this.ageNumericUpDown.Size = new System.Drawing.Size(50, 20);
+
+            // 设置籍贯标签和文本框
+            this.nativePlaceLabel.Text = "籍贯:";
+            this.nativePlaceLabel.Location = new System.Drawing.Point(30, 150);
+            this.nativePlaceLabel.Size = new System.Drawing.Size(60, 20);
+
+            this.nativePlaceTextBox.Location = new System.Drawing.Point(100, 150);
+            this.nativePlaceTextBox.Size = new System.Drawing.Size(150, 20);
+
+            // 设置党员复选框
+            this.partyMemberCheckBox.Text = "党员";
+            this.partyMemberCheckBox.Location = new System.Drawing.Point(30, 180);
+            this.partyMemberCheckBox.Size = new System.Drawing.Size(100, 20);
+            this.partyMemberCheckBox.CheckedChanged += new EventHandler(partyMemberCheckBox_CheckedChanged);
+
+            // 设置显示信息按钮
+            this.showInfoButton.Text = "显示信息";
+            this.showInfoButton.Location = new System.Drawing.Point(30, 220);
+            this.showInfoButton.Size = new System.Drawing.Size(100, 23);
+            this.showInfoButton.Click += new EventHandler(showInfoButton_Click);
+
+            // 设置打开简历窗体按钮
+            this.resumeButton.Text = "输入简历";
+            this.resumeButton.Location = new System.Drawing.Point(150, 220);
+            this.resumeButton.Size = new System.Drawing.Size(100, 23);
+            this.resumeButton.Click += new EventHandler(resumeButton_Click);
+
+            // 将控件添加到窗体
+            this.Controls.Add(this.studentIdLabel);
+            this.Controls.Add(this.studentIdTextBox);
+            this.Controls.Add(this.nameLabel);
+            this.Controls.Add(this.nameTextBox);
+            this.Controls.Add(this.genderLabel);
+            this.Controls.Add(this.maleRadioButton);
+            this.Controls.Add(this.femaleRadioButton);
+            this.Controls.Add(this.ageLabel);
+            this.Controls.Add(this.ageNumericUpDown);
+            this.Controls.Add(this.nativePlaceLabel);
+            this.Controls.Add(this.nativePlaceTextBox);
+            this.Controls.Add(this.partyMemberCheckBox);
+            this.Controls.Add(this.showInfoButton);
+            this.Controls.Add(this.resumeButton);
+
+            // 设置窗体大小和启动位置
+            this.ClientSize = new System.Drawing.Size(300, 280);
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            ((System.ComponentModel.ISupportInitialize)(this.ageNumericUpDown)).EndInit();
+            this.ResumeLayout(false);
+        }
+
+        private void partyMemberCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (partyMemberCheckBox.Checked)
+            {
+                MessageBox.Show("入党时间：2005年", "党员信息");
+            }
+        }
+
+        private void showInfoButton_Click(object sender, EventArgs e)
+        {
+            string gender = maleRadioButton.Checked ? "男" : "女";
+            string info = $"学号：{studentIdTextBox.Text}\n姓名：{nameTextBox.Text}\n性别：{gender}\n年龄：{ageNumericUpDown.Value}";
+            MessageBox.Show(info, "学生信息");
+        }
+
+        private void resumeButton_Click(object sender, EventArgs e)
+        {
+            // 打开简历输入窗体（假设另外一个窗体名为 ResumeForm）
+            ResumeForm resumeForm = new ResumeForm();
+            resumeForm.ShowDialog();
+        }
+
+        // 主方法，用于启动窗体
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new StudentInfoForm());
+        }
+    }
+}
