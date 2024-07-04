@@ -167,4 +167,8 @@ namespace StudentInformationForm
             Application.Run(new StudentInfoForm());
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 4464a6d741a9e9bb728aae8fe68ab8d4076d0714
